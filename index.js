@@ -19,7 +19,10 @@ app.post("/auth/login", (req, res) => {
 
   if (!username || !password) {
     return res.status(400).json({
-      error: "Username and password are required",
+      code: 400,
+      status: "error",
+      message: "Username and password are required",
+      data: null
     });
   }
 
@@ -29,7 +32,10 @@ app.post("/auth/login", (req, res) => {
 
   if (!user) {
     return res.status(401).json({
-      error: "Invalid credentials",
+      code: 401,
+      status: "error",
+      message: "Invalid credentials",
+      data: null
     });
   }
 
@@ -43,8 +49,13 @@ app.post("/auth/login", (req, res) => {
   );
 
   res.json({
-    access_token: token,
-    isFirstLogin: user.isFirstLogin,
+    code: 200,
+    status: "success",
+    message: "Login successful",
+    data: {
+      access_token: token,
+      isFirstLogin: user.isFirstLogin
+    }
   });
 });
 

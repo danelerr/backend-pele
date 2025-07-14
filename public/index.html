@@ -105,15 +105,21 @@
   "password": "password"
 }</pre>
             <p><strong>Response (Success):</strong></p>
-            <pre>
-{
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "isFirstLogin": false
+            <pre>{
+  "code": 200,
+  "status": "success",
+  "message": "Login successful",
+  "data": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "isFirstLogin": false
+  }
 }</pre>
             <p><strong>Response (Error):</strong></p>
-            <pre>
-{
-  "error": "Invalid credentials"
+            <pre>{
+  "code": 401,
+  "status": "error",
+  "message": "Invalid credentials",
+  "data": null
 }</pre>
         </div>
         <div class="endpoint">
